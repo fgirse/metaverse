@@ -1,37 +1,40 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
+import styles from "../styles";
 import { fadeIn, staggerContainer, zoomIn } from "../utils/motion";
 
-import styles from "../styles";
-
 const Feedback = () => (
-  <section className={`${styles.paddings} relative z-10`}>
+  <section className={`${styles.paddings} g:h-screen lg:bg-[url('/west-side-story.png')] lg:bg-cover w-full `}
+  >
     <motion.div
       variants={staggerContainer}
       initial="hidden"
       whileInView="show"
       viewport={{ once: false, amount: 0.25 }}
-      className={`${styles.innerWidth} mx-auto flex flex-col lg:flex-row gap-6`}
+      className={`${styles.innerWidth} mx-auto flex lg:flex-row flex-col gap-6`}
     >
       <motion.div
         variants={fadeIn("right", "tween", 0.2, 1)}
-        className="flex-[0.5] lg:max-w-[370px] flex justify-end flex-col gradient-05 sm:p-8 p-4 rounded-[32px] border-[1px] border-[#6a6a6a] relative"
+        className="flex-[0.5] lg:max-w-[370px] flex justify-end flex-col gradient-05 sm:p-8 p-4 rounded-[32px] border-[1px] border-[#6A6A6A] relative"
       >
-        <div className="feedback-gradient"></div>
+        <div className="feedback-gradient" />
         <div>
-          <h4 className="font-bold sm:text-[32px] text-[26px] sm:leading-[40px] leading-[36px] text-white">
-            Samantha
+          <h4 className="font-bold sm:text-[32px] text-[26px] sm:leading-[40.32px] leading-[36.32px] text-white">
+            Lageplan
           </h4>
-          <p className="mt-[8px] text-[12px] sm:text-[18px] sm:leading-[22px] leading-[16px] text-white">
-            Founder of Metaversus
-          </p>
+          <img
+            src="/LogoAlt.png"
+            alt="LogoAlt"
+            className="w-[155px] h-[155px] object-contain"
+          />
         </div>
-        <p className="mt-[24px] text-[18px] sm:text-[24px] sm:leading-[45px] leading-[39px] text-white">
-          "Dramatically reinvent backend internal or organic sources through
-          competitive ROI. Holisticly grow multidisciplinary web-readiness and
-          front-end experiences. Authoritatively restore high-payoff leadership
-          with communities. "
+
+        <p className="mt-[24px] font-normal sm:text-[24px] text-[18px] sm:leading-[45.6px] leading-[39.6px] text-white">
+          “With the development of today technology, metaverse is very useful
+          for today's work, or can be called web 3.0. by using metaverse you can
+          use it as anything”
         </p>
       </motion.div>
 
@@ -39,11 +42,7 @@ const Feedback = () => (
         variants={fadeIn("left", "tween", 0.2, 1)}
         className="relative flex-1 flex justify-center items-center"
       >
-        <img
-          src="/planet-09.png"
-          alt="planet-09"
-          className="w-full lg:h-[610px] h-auto min-h-[210px] object-cover rounded-[40px]"
-        />
+        
 
         <motion.div
           variants={zoomIn(0.4, 1)}
