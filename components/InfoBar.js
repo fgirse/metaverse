@@ -36,12 +36,12 @@ export default function InfoBar() {
             <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
             <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
           </svg>
-          <p className="font-mono text-[.55rem] text-gray-100 lg:text-[.66rem] xl:text-[.9rem]  2xl:text-[1.1rem]">
+          <p className="font-mono text-[.55rem] text-gray-100 lg:text-[.55rem] xl:text-[.9rem]  2xl:text-[1.1rem]">
             rettungsanker-freiburg@gmx.de
           </p>
         </div>
         <div>
-          <p className="hidden font-mono text-gray-100 lg:block lg:text-[.66rem] xl:text-[.9rem]  2xl:text-[1.1rem]">
+          <p className="hidden font-mono text-gray-100 lg:block lg:text-[.55rem] xl:text-[.9rem]  2xl:text-[1.1rem]">
             Öffnungszeiten: Montag bis Donnerstag: 18-24 Uhr Freitag und
             Samstag: 15-03 Uhr Sonntags: geschlossen
           </p>
