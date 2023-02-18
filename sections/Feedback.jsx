@@ -9,7 +9,7 @@ import { fadeIn, staggerContainer, zoomIn } from "../utils/motion";
  import { ArrowCircleRightIcon } from "@heroicons/react/solid";
 import { ArrowCircleUpIcon } from "@heroicons/react/outline";
 const Feedback = () => (
-  <section className={`${styles.paddings} g:h-screen lg:bg-[url('/west-side-story.png')] lg:bg-cover w-full `}
+  <section id="#wohin" className={`${styles.paddings} g:h-screen lg:bg-[url('/west-side-story.png')] lg:bg-cover w-full `}
   >
     <motion.div
       variants={staggerContainer}
@@ -22,24 +22,24 @@ const Feedback = () => (
         variants={fadeIn("right", "tween", 0.2, 1)}
         className="flex-[0.5] lg:max-w-[370px] flex justify-end flex-col gradient-05 sm:p-8 p-4 rounded-[32px] border-[1px] border-[#6A6A6A] relative"
       >
-        <div className="feedback-gradient" />
+        <div className="feedback-gradient bg-slate-100/25" />
         <div>
           <h4 className="font-bold sm:text-[32px] text-[26px] sm:leading-[40.32px] leading-[36.32px] text-white">
             Lageplan
           </h4>
           <Image
-            src="/LogoAlt.png"
+            src="/LogoNeu.png"
             width="340"
-            height="30"
+            height="300"
             alt="LogoAlt"
             className="w-[155px] h-[155px] object-contain"
           />
         </div>
 
-        <p className="mt-[24px] font-normal sm:text-[24px] text-[18px] sm:leading-[45.6px] leading-[39.6px] text-white">
-          “With the development of today technology, metaverse is very useful
-          for todays work, or can be called web 3.0. by using metaverse you can
-          use it as anything”
+        <p className="mt-[24px] font-normal sm:text-[24px] text-[18px] sm:leading-[45.6px] leading-[39.6px] bg-white/40 text-white">
+          Rettungsanker Freiburg< br/>
+          Adehauser-Strasse 7c< br/>
+          79098 Freiburg
         </p>
       </motion.div>
 

@@ -32,7 +32,7 @@ const navigation = [
   { name: 'Drinks', href: '#', current: false },
   { name: 'Sportarena', href: '#', current: false },
   { name: 'Events', href: '/Event', current: false },
-  { name: 'Wohin ?', href: '/Wohin', current: false },
+  { name: 'Wohin ?', href: '/#wohin', current: false },
   { name: 'Impressum', href: '/Impressum', current: false },
 ]
 
