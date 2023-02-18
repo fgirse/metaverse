@@ -1,5 +1,7 @@
+"use client"
+
 import { Fragment } from 'react';
-import { Menu, Transition } from '@headlessui/react';
+import { Disclosure, Menu, Transition } from '@headlessui/react'
 import {
   BookOpenIcon,
   ArrowCircleRightIcon,
@@ -14,459 +16,197 @@ import {
 import Image from 'next/image';
 import Link from 'next/link';
 import LogoNeu from '../public/LogoNeu.png';
+import { SearchIcon } from '@heroicons/react/solid'
+import { BellIcon, MenuIcon, XIcon } from '@heroicons/react/outline'
+
+const user = {
+  name: 'Tom Cook',
+  email: 'tom@example.com',
+  imageUrl:
+    'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+}
+const navigation = [
+  { name: 'Home', href: '/#moinmoin', current: true },
+  { name: 'Geschichte', href: '#', current: false },
+  { name: 'Team', href: '#', current: false },
+  { name: 'Drinks', href: '#', current: false },
+  { name: 'Sportarena', href: '#', current: false },
+  { name: 'Events', href: '/Event', current: false },
+  { name: 'Wohin ?', href: '/Wohin', current: false },
+  { name: 'Impressum', href: '/Impressum', current: false },
+]
+
+
+const userNavigation = [
+  { name: 'Your Profile', href: '#' },
+  { name: 'Settings', href: '#' },
+  { name: 'Sign out', href: '#' },
+]
 
 function classNames(...classes) {
-  return classes.filter(Boolean).join(' ');
+  return classes.filter(Boolean).join(' ')
 }
 
-const Navbar = () => {
+export default function Example() {
   return (
-    <div
-      id="topBorder"
-      className='fixed top-0 z-10 hidden lg:mx-auto lg:flex lg:h-[120px] lg:w-full lg:items-center lg:justify-between lg:rounded-lg lg:bg-[url("/Wood3.svg")] lg:bg-cover lg:bg-no-repeat lg:text-white lg:text[2.0rem]'
-    >
-      <Link href="/">
-        <div className="h-12 w-12 ">
-          <LogoNeu />
-        </div>
-      </Link>
-
-      <ul className="flex items-center justify-evenly">
-        <li className="flex items-center gap-x-1">
-          <Menu as="div" className="relative inline-block">
-            <Link href="/" className="text-slg">
-              <div className="flex items-center">
-                <Image
-                  src="/Bulleye.svg"
-                  height={30}
-                  width={30}
-                  alt="bullauge"
-                  className="scale-125 transform"
-                />
-
-                <div>
-                  <Menu.Button className="inline-flex w-full justify-center rounded-md bg-black/20 px-4 py-2 font-black uppercase text-gray-50 shadow-sm hover:bg-yellow-600 hover:text-gray-200 focus:outline-none focus:ring-2 focus:ring-yellow-600 focus:ring-offset-2 focus:ring-offset-gray-100 lg:text-[.85rem] 2xl:text-[1.0rem]">
-                    Home
-                  </Menu.Button>
+    <Disclosure as="header" className="bg-gray-800">
+      {({ open }) => (
+        <>
+          <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:divide-y lg:divide-gray-700 lg:px-8">
+            <div className="relative h-16 flex justify-between">
+              <div className="relative z-10 px-2 flex lg:px-0">
+                <div className="flex-shrink-0 flex items-center">
+                  <img
+                    className="block h-8 w-auto"
+                    src="/LogoNeu.png"
+                    alt="Workflow"
+                  />
                 </div>
               </div>
-            </Link>
-          </Menu>
-        </li>
-        <li className="flex items-center">
-          <div className="h-8 w-8 ">
-            <Image
-              src="/Bulleye.svg"
-              height={30}
-              width={30}
-              alt="bullauge"
-              className="scale-125 transform "
-            />
-          </div>
-          <Menu as="div" className="relative inline-block text-left">
-            <div>
-              <Menu.Button className="inline-flex w-full justify-center rounded-md bg-black/20 px-4 py-2 font-black uppercase text-gray-50 shadow-sm hover:bg-yellow-600 hover:text-gray-200 focus:outline-none focus:ring-2 focus:ring-yellow-600 focus:ring-offset-2 focus:ring-offset-gray-100 2xl:text-[1.33rem]">
-                Über uns
-                <ChevronDownIcon
-                  className="-mr-1 ml-2 h-5 w-5"
-                  aria-hidden="true"
-                />
-              </Menu.Button>
-            </div>
-
-            <Transition
-              as={Fragment}
-              enter="transition ease-out duration-100"
-              enterFrom="transform opacity-0 scale-95"
-              enterTo="transform opacity-100 scale-100"
-              leave="transition ease-in duration-75"
-              leaveFrom="transform opacity-100 scale-100"
-              leaveTo="transform opacity-0 scale-95"
-            >
-              <Menu.Items className="absolute right-0 mt-2 w-56 origin-top-right divide-y divide-gray-100 rounded-md bg-yellow-600 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
-                <div className="py-1">
-                  <Menu.Item>
-                    {({ active }) => (
-                      <Link
-                        href="geschichte"
-                        className={classNames(
-                          active
-                            ? 'bg-yellow-700 text-gray-100'
-                            : 'text-gray-50',
-                          'group flex items-center px-4 py-2 text-[1rem]',
-                        )}
-                      >
-                        <BookOpenIcon
-                          className="mr-3 h-5 w-5 text-gray-100 group-hover:text-gray-600"
-                          aria-hidden="true"
-                        />
-                        Geschichte
-                      </Link>
-                    )}
-                  </Menu.Item>
-                  <Menu.Item>
-                    {({ active }) => (
-                      <Link
-                        href="team"
-                        className={classNames(
-                          active
-                            ? 'bg-yellow-700 text-gray-100'
-                            : 'text-gray-50',
-                          'group flex items-center px-4 py-2 text-[1rem]',
-                        )}
-                      >
-                        <UserGroupIcon
-                          className="mr-3 h-5 w-5 text-gray-100 group-hover:text-gray-600"
-                          aria-hidden="true"
-                        />
-                        Unser Team
-                      </Link>
-                    )}
-                  </Menu.Item>{' '}
-                  <Menu.Item>
-                    {({ active }) => (
-                      <Link
-                        href="Test"
-                        className={classNames(
-                          active
-                            ? 'bg-yellow-700 text-gray-100'
-                            : 'text-gray-50',
-                          'group flex items-center px-4 py-2 text-[1rem]',
-                        )}
-                      >
-                        <ViewListIcon
-                          className="mr-3 h-5 w-5 text-gray-100 group-hover:text-gray-600"
-                          aria-hidden="true"
-                        />
-                        Test
-                      </Link>
-                    )}
-                  </Menu.Item>
-                </div>
-                <div className="py-1">
-                  <Menu.Item>
-                    {({ active }) => (
-                      <Link
-                        href="impressum"
-                        className={classNames(
-                          active
-                            ? 'bg-yellow-700 text-gray-100'
-                            : 'text-gray-50',
-                          'group flex items-center px-4 py-2 text-[1rem]',
-                        )}
-                      >
-                        <ViewListIcon
-                          className="mr-3 h-5 w-5 text-gray-100 group-hover:text-gray-600"
-                          aria-hidden="true"
-                        />
-                        Impressum
-                      </Link>
-                    )}
-                  </Menu.Item>
-                </div>
-              </Menu.Items>
-            </Transition>
-          </Menu>
-        </li>
-        <li className="flex items-center gap-x-2 p-4">
-          <div className="h-8 w-8 ">
-            <Image
-              src="/Bulleye.svg"
-              height={30}
-              width={30}
-              alt="bullauge"
-              className="scale-125 transform "
-            />
-          </div>
-          <Menu as="div" className="relative inline-block text-left">
-            <div>
-              <Menu.Button
-                className="inline-flex w-full justify-center rounded-md bg-black/20 px-4 py-2 font-black uppercase text-gray-50 shadow-sm hover:bg-yellow-600 focus:outline-none
- focus:ring-2 focus:ring-yellow-600 focus:ring-offset-2 focus:ring-offset-gray-100 2xl:text-[1.33rem]"
-              >
-                Drinks & Snacks
-                <ChevronDownIcon
-                  className="-mr-1 ml-2 h-5 w-5"
-                  aria-hidden="true"
-                />
-              </Menu.Button>
-            </div>
-
-            <Transition
-              as={Fragment}
-              enter="transition ease-out duration-100"
-              enterFrom="transform opacity-0 scale-95"
-              enterTo="transform opacity-100 scale-100"
-              leave="transition ease-in duration-75"
-              leaveFrom="transform opacity-100 scale-100"
-              leaveTo="transform opacity-0 scale-95"
-            >
-              <Menu.Items className="absolute right-0 z-10 mt-2 w-56 origin-top-right divide-y divide-gray-100 rounded-md bg-yellow-600 shadow-lg focus:outline-none">
-                <div className="py-1">
-                  <Menu.Item>
-                    {({ active }) => (
-                      <Link
-                        href="biere"
-                        className={classNames(
-                          active
-                            ? 'bg-yellow-700 text-gray-100'
-                            : 'text-gray-50',
-                          'group flex items-center px-4 py-2 text-[1rem]',
-                        )}
-                      >
-                        <ViewListIcon
-                          className="mr-3 h-5 w-5 text-gray-100 group-hover:text-gray-600"
-                          aria-hidden="true"
-                        />
-                        Biere & Softgetränke
-                      </Link>
-                    )}
-                  </Menu.Item>
-                  <Menu.Item>
-                    {({ active }) => (
-                      <Link
-                        href="weine"
-                        className={classNames(
-                          active
-                            ? 'bg-yellow-700 text-gray-100'
-                            : 'text-gray-50',
-                          'group flex items-center px-4 py-2 text-[1rem]',
-                        )}
-                      >
-                        <ViewListIcon
-                          className="mr-3 h-5 w-5 text-gray-100 group-hover:text-gray-600"
-                          aria-hidden="true"
-                        />
-                        Weine
-                      </Link>
-                    )}
-                  </Menu.Item>
-                </div>
-                <div className="py-1">
-                  <Menu.Item>
-                    {({ active }) => (
-                      <Link
-                        href="kurze"
-                        className={classNames(
-                          active
-                            ? 'bg-yellow-700 text-gray-100'
-                            : 'text-gray-50',
-                          'group flex items-center px-4 py-2 text-[1rem]',
-                        )}
-                      >
-                        <ViewListIcon
-                          className="mr-3 h-5 w-5 text-gray-100 group-hover:text-gray-600"
-                          aria-hidden="true"
-                        />
-                        Kurze & Longdrinks
-                      </Link>
-                    )}
-                  </Menu.Item>
-                  <Menu.Item>
-                    {({ active }) => (
-                      <Link
-                        href="snacks"
-                        className={classNames(
-                          active
-                            ? 'bg-yellow-700 text-gray-100'
-                            : 'text-gray-50',
-                          'group flex items-center px-4 py-2 text-[1rem]',
-                        )}
-                      >
-                        <ViewListIcon
-                          className="mr-3 h-5 w-5 text-gray-100 group-hover:text-gray-600"
-                          aria-hidden="true"
-                        />
-                        KleinerImbiss Snack
-                      </Link>
-                    )}
-                  </Menu.Item>
-                </div>
-              </Menu.Items>
-            </Transition>
-          </Menu>
-        </li>
-        <li className="flex items-center gap-x-2 p-4">
-          <div className="h-8 w-8 ">
-            <Image
-              src="/Bulleye.svg"
-              height={30}
-              width={30}
-              alt="bullauge"
-              className="scale-125 transform "
-            />
-          </div>
-          <Menu as="div" className="relative inline-block text-left">
-            <div>
-              <Menu.Button className="inline-flex w-full justify-center rounded-md bg-black/20 px-4 py-2 font-black uppercase text-gray-50 shadow-sm hover:bg-yellow-600 focus:outline-none focus:ring-2 focus:ring-yellow-600 focus:ring-offset-2 focus:ring-offset-gray-100 2xl:text-[1.33rem]">
-                Sportarena
-                <ChevronDownIcon
-                  className="-mr-1 ml-2 h-5 w-5"
-                  aria-hidden="true"
-                />
-              </Menu.Button>
-            </div>
-
-            <Transition
-              as={Fragment}
-              enter="transition ease-out duration-100"
-              enterFrom="transform opacity-0 scale-95"
-              enterTo="transform opacity-100 scale-100"
-              leave="transition ease-in duration-75"
-              leaveFrom="transform opacity-100 scale-100"
-              leaveTo="transform opacity-0 scale-95"
-            >
-              <Menu.Items
-                className="absolute right-0 z-10 mt-2 w-56 origin-top-right divide-y divide-gray-100 rounded-md bg-yellow-600
- shadow-lg focus:outline-none"
-              >
-                <div className="py-1">
-                  <Menu.Item>
-                    {({ active }) => (
-                      <Link
-                        href="scfreiburg"
-                        className={classNames(
-                          active
-                            ? 'bg-yellow-700 text-gray-100'
-                            : 'text-gray-50',
-                          'group flex items-center px-4 py-2 text-[1rem]',
-                        )}
-                      >
-                        <ViewListIcon
-                          className="mr-3 h-5 w-5 text-gray-100 group-hover:text-gray-600"
-                          aria-hidden="true"
-                        />
-                        SC Freiburg Info
-                      </Link>
-                    )}
-                  </Menu.Item>
-                  <Menu.Item>
-                    {({ active }) => (
-                      <Link
-                        href="bundesliga"
-                        className={classNames(
-                          active
-                            ? 'bg-yellow-700 text-gray-100'
-                            : 'text-gray-50',
-                          'group flex items-center px-4 py-2 text-[1rem]',
-                        )}
-                      >
-                        <ViewListIcon
-                          className="mr-3 h-5 w-5 text-gray-100 group-hover:text-gray-600"
-                          aria-hidden="true"
-                        />
-                        Tabelle Bundesliga
-                      </Link>
-                    )}
-                  </Menu.Item>
-                </div>
-                <div className="py-1"></div>
-              </Menu.Items>
-            </Transition>
-          </Menu>
-        </li>
-        <li className="flex items-center gap-x-2 p-4">
-          <Menu as="div" className="relative inline-block text-left">
-            <Link href="events" className="events">
-              <div className="flex items-center gap-x-1">
-                <Image
-                  src="/Bulleye.svg"
-                  height={30}
-                  width={30}
-                  alt="bullauge"
-                  className="sca
-                    zzhover:transform "
-                />
-
-                <div>
-                  <Menu.Button className="inline-flex w-full justify-center rounded-md bg-black/20 px-4 py-2 font-black uppercase text-gray-50 shadow-sm hover:bg-yellow-600 hover:text-gray-200 focus:outline-none focus:ring-2 focus:ring-yellow-600 focus:ring-offset-2 focus:ring-offset-gray-100 2xl:text-[1.33rem]">
-                    Events
-                  </Menu.Button>
+              <div className="relative z-0 flex-1 px-2 flex items-center justify-center sm:absolute sm:inset-0">
+                <div className="w-full sm:max-w-xs">
+                  <label htmlFor="search" className="sr-only">
+                    Search
+                  </label>
+                  <div className="relative">
+                    <div className="pointer-events-none absolute inset-y-0 left-0 pl-3 flex items-center">
+                      <SearchIcon className="h-5 w-5 text-gray-400" aria-hidden="true" />
+                    </div>
+                    <input
+                      id="search"
+                      name="search"
+                      className="block w-full bg-yellow-100/50 border border-transparent rounded-md py-2 pl-10 pr-3 text-sm placeholder-gray-400 focus:outline-none focus:bg-white focus:border-white focus:ring-white focus:text-blue-500-900 focus:placeholder-gray-500 sm:text-sm"
+                      placeholder="Search"
+                      type="search"
+                    />
+                  </div>
                 </div>
               </div>
-            </Link>
-          </Menu>
-        </li>
+              <div className="relative z-10 flex items-center lg:hidden">
+                {/* Mobile menu button */}
+                <Disclosure.Button className="rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
+                  <span className="sr-only">Open menu</span>
+                  {open ? (
+                    <XIcon className="block h-6 w-6" aria-hidden="true" />
+                  ) : (
+                    <MenuIcon className="block h-6 w-6" aria-hidden="true" />
+                  )}
+                </Disclosure.Button>
+              </div>
+              <div className="hidden lg:relative lg:z-10 lg:ml-4 lg:flex lg:items-center">
+                <button
+                  type="button"
+                  className="bg-gray-800 flex-shrink-0 rounded-full p-1 text-yellow-400-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
+                >
+                  <span className="sr-only">View notifications</span>
+                  <BellIcon className="h-6 w-6" aria-hidden="true" />
+                </button>
 
-        <li className="flex items-center gap-x-2 p-4">
-          <div className="h-8 w-8 ">
-            <Image
-              src="/Bulleye.svg"
-              height={30}
-              width={30}
-              alt="bullauge"
-              className="scale-125 transform "
-            />
-          </div>
-          <Menu as="div" className="relative inline-block text-left">
-            <div>
-              <Menu.Button className="inline-flex w-full justify-center rounded-md bg-black/20 px-4 py-2 font-black uppercase text-gray-50 shadow-sm hover:bg-yellow-600 focus:outline-none focus:ring-2 focus:ring-yellow-600 focus:ring-offset-2 focus:ring-offset-gray-100 2xl:text-[1.33rem]">
-                Wohin?
-                <ChevronDownIcon
-                  className="-mr-1 ml-2 h-5 w-5"
-                  aria-hidden="true"
-                />
-              </Menu.Button>
+                {/* Profile dropdown */}
+                <Menu as="div" className="flex-shrink-0 relative ml-4">
+                  <div>
+                    <Menu.Button className="bg-gray-800 rounded-full flex text-sm text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
+                      <span className="sr-only">Open user menu</span>
+                      <img className="h-8 w-8 rounded-full" src={user.imageUrl} alt="" />
+                    </Menu.Button>
+                  </div>
+                  <Transition
+                    as={Fragment}
+                    enter="transition ease-out duration-100"
+                    enterFrom="transform opacity-0 scale-95"
+                    enterTo="transform opacity-100 scale-100"
+                    leave="transition ease-in duration-75"
+                    leaveFrom="transform opacity-100 scale-100"
+                    leaveTo="transform opacity-0 scale-95"
+                  >
+                    <Menu.Items className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 py-1 focus:outline-none">
+                      {userNavigation.map((item) => (
+                        <Menu.Item key={item.name}>
+                          {({ active }) => (
+                            <a
+                              href={item.href}
+                              className={classNames(
+                                active ? 'bg-gray-100' : '',
+                                'block py-2 px-4 text-sm text-gray-700'
+                              )}
+                            >
+                              {item.name}
+                            </a>
+                          )}
+                        </Menu.Item>
+                      ))}
+                    </Menu.Items>
+                  </Transition>
+                </Menu>
+              </div>
             </div>
+            <nav className="hidden lg:py-2 lg:flex lg:space-x-8" aria-label="Global">
+              {navigation.map((item) => (
+                <a
+                  key={item.name}
+                  href={item.href}
+                  className={classNames(
+                    item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
+                    'rounded-md py-2 px-3 inline-flex items-center text-sm font-medium'
+                  )}
+                  aria-current={item.current ? 'page' : undefined}
+                >
+                  {item.name}
+                </a>
+              ))}
+            </nav>
+          </div>
 
-            <Transition
-              as={Fragment}
-              enter="transition ease-out duration-100"
-              enterFrom="transform opacity-0 scale-95"
-              enterTo="transform opacity-100 scale-100"
-              leave="transition ease-in duration-75"
-              leaveFrom="transform opacity-100 scale-100"
-              leaveTo="transform opacity-0 scale-95"
-            >
-              <Menu.Items className="absolute right-0 z-10 mt-2 w-56 origin-top-right divide-y divide-gray-100 rounded-md bg-yellow-600 shadow-lg focus:outline-none">
-                <div className="py-1">
-                  <Menu.Item>
-                    {({ active }) => (
-                      <Link
-                        href="lageplan"
-                        className={classNames(
-                          active
-                            ? 'bg-yellow-700 text-gray-100'
-                            : 'text-gray-50',
-                          'group flex items-center px-4 py-2 text-[1rem]',
-                        )}
-                      >
-                        <ViewListIcon
-                          className="mr-3 h-5 w-5 text-gray-100 group-hover:text-gray-600"
-                          aria-hidden="true"
-                        />
-                        Lageplan & Infos
-                      </Link>
-                    )}
-                  </Menu.Item>
-                  <Menu.Item>
-                    {({ active }) => (
-                      <Link
-                        href="openstreet"
-                        className={classNames(
-                          active
-                            ? 'bg-yellow-700 text-gray-100'
-                            : 'text-gray-50',
-                          'group flex items-center px-4 py-2 text-[1rem]',
-                        )}
-                      >
-                        <ViewListIcon
-                          className="mr-3 h-5 w-5 text-gray-100 group-hover:text-gray-600"
-                          aria-hidden="true"
-                        />
-                        Karte in Openstreet
-                      </Link>
-                    )}
-                  </Menu.Item>
+          <Disclosure.Panel as="nav" className="lg:hidden" aria-label="Global">
+            <div className="pt-2 pb-3 px-2 space-y-1">
+              {navigation.map((item) => (
+                <Disclosure.Button
+                  key={item.name}
+                  as="a"
+                  href={item.href}
+                  className={classNames(
+                    item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
+                    'block rounded-md py-2 px-3 text-base font-medium'
+                  )}
+                  aria-current={item.current ? 'page' : undefined}
+                >
+                  {item.name}
+                </Disclosure.Button>
+              ))}
+            </div>
+            <div className="border-t border-gray-700 pt-4 pb-3">
+              <div className="px-4 flex items-center">
+                <div className="flex-shrink-0">
+                  <img className="h-10 w-10 rounded-full" src={user.imageUrl} alt="" />
                 </div>
-                <div className="py-1"></div>
-              </Menu.Items>
-            </Transition>
-          </Menu>
-        </li>
-      </ul>
-    </div>
-  );
-};
-
-export default Navbar;
+                <div className="ml-3">
+                  <div className="text-base font-medium text-white">{user.name}</div>
+                  <div className="text-sm font-medium text-gray-400">{user.email}</div>
+                </div>
+                <button
+                  type="button"
+                  className="ml-auto flex-shrink-0 bg-gray-800 rounded-full p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
+                >
+                  <span className="sr-only">View notifications</span>
+                  <BellIcon className="h-6 w-6" aria-hidden="true" />
+                </button>
+              </div>
+              <div className="mt-3 px-2 space-y-1">
+                {userNavigation.map((item) => (
+                  <Disclosure.Button
+                    key={item.name}
+                    as="a"
+                    href={item.href}
+                    className="block rounded-md py-2 px-3 text-base font-medium text-gray-400 hover:bg-gray-700 hover:text-white"
+                  >
+                    {item.name}
+                  </Disclosure.Button>
+                ))}
+              </div>
+            </div>
+          </Disclosure.Panel>
+        </>
+      )}
+    </Disclosure>
+  )
+}

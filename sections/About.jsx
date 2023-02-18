@@ -18,13 +18,13 @@ const About = () => (
       viewport={{ once: false, amount: 0.25 }}
       className={`${styles.innerWidth} mx-auto ${styles.flexCenter} flex-col`}
     >
-      <TypingText title="| Moin Moin" textStyles="text-center" />
+      <TypingText id="moinmoin" title="| Moin Moin" textStyles="text-center" />
 
-      <motion.p
+      <motion.div
         variants={fadeIn("up", "tween", 0.2, 1)}
         className="mt-[8px] font-normal sm:text-[32px] text-[20px] text-center text-gray-500"
       >
-        <h1 className="text-[4rem] font-extrabold text-yellow-500 text-center">&quot;Moin Moin&quot;</h1>
+        <motion-h1 className="text-[4rem] font-extrabold text-yellow-500 text-center">&quot;Moin Moin&quot;</motion-h1>
         <Image
           src="/lighthouse3.png"
           height="380"
@@ -55,7 +55,7 @@ const About = () => (
         />
         <p className=''> Michael Schreck und das Team des Rettungsankers</p>
         </div>
-      </motion.p>
+      </motion.div>
       <div className="flex flex-col items-center justify-center">
           <Tooltip fontSize="0.866rem" padding="2px" content="sende email an rettungsanker-freiburg@gmx.de" direction="top" border="#ffffff" background="#d000ff">
             <button className="lg-justify-between relative mx-auto mb-5 mt-6 flex w-52 flex-row items-center justify-center gap-x-3 rounded-lg border border-transparent bg-yellow-500 px-4 py-2 font-sans text-2xl font-medium  text-gray-200 transition delay-150 duration-300 ease-in-out hover:-translate-y-1  hover:scale-110 hover:bg-indigo-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 md:text-3xl lg:mb-20 lg:flex lg:w-80 lg:flex-row lg:items-center lg:text-2xl xl:mt-2" type="button">

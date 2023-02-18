@@ -2,9 +2,12 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 import styles from "../styles";
+import Tooltip from "react-simple-tooltip";
 import { fadeIn, staggerContainer, zoomIn } from "../utils/motion";
-
+ import { ArrowCircleRightIcon } from "@heroicons/react/solid";
+import { ArrowCircleUpIcon } from "@heroicons/react/outline";
 const Feedback = () => (
   <section className={`${styles.paddings} g:h-screen lg:bg-[url('/west-side-story.png')] lg:bg-cover w-full `}
   >
@@ -24,8 +27,10 @@ const Feedback = () => (
           <h4 className="font-bold sm:text-[32px] text-[26px] sm:leading-[40.32px] leading-[36.32px] text-white">
             Lageplan
           </h4>
-          <img
+          <Image
             src="/LogoAlt.png"
+            width="340"
+            height="30"
             alt="LogoAlt"
             className="w-[155px] h-[155px] object-contain"
           />
@@ -33,7 +38,7 @@ const Feedback = () => (
 
         <p className="mt-[24px] font-normal sm:text-[24px] text-[18px] sm:leading-[45.6px] leading-[39.6px] text-white">
           “With the development of today technology, metaverse is very useful
-          for today's work, or can be called web 3.0. by using metaverse you can
+          for todays work, or can be called web 3.0. by using metaverse you can
           use it as anything”
         </p>
       </motion.div>
@@ -48,13 +53,27 @@ const Feedback = () => (
           variants={zoomIn(0.4, 1)}
           className="lg:block hidden absolute -left-[10%] top-[3%]"
         >
-          <img
-            src="/stamp.png"
-            alt="stamp"
-            className="w-[155px] h-[155px] object-contain"
-          />
-        </motion.div>
+
+
+
+          </motion.div>
       </motion.div>
+      <div className="flex flex-col items-center justify-center">
+          <Tooltip fontSize="0.866rem" padding="2px" content="back to TOP" direction="top" border="#ffffff" background="#d000ff">
+          <buttton type="buttton" className="bg-orange-400 text-[1rem] rounded-full border border-white text-white w-24 h-24 flex flex-row justify-center items-center ">
+            {/*<svg
+                className="w-16 lg:w-20 "
+                fill="#ffffff"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
+                <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
+</svg>*/} <ArrowCircleUpIcon/>
+              <Link href="/blog/intro" scroll={true}></Link>
+                 </buttton>
+          </Tooltip>
+        </div>
     </motion.div>
   </section>
 );

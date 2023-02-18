@@ -1,5 +1,6 @@
 import { Footer, Navbar, } from "../components";
 import InfoBar from "../components/InfoBar";
+import MenuBar from'../components/MenuBar';
 import Philosophie from "../sections/Philosophie";
 import {
   About,
@@ -14,7 +15,7 @@ import {
 function Page() {
   return (
     <div className="bg-primary-black overflow-hidden">
-      <Navbar />
+      <MenuBar />
       <InfoBar />
       <Hero />
       <div className="relative">

@@ -27,12 +27,12 @@ const Hero = () => (
           variants={textVariant(1.2)}
           className="-mt[vh] flex flex-row justify-center items-center"
         >
-          <h1 className="lg:-mt-[15vh] text-5xl lg:text-[9rem] text-red-700 headingF font-sans">
+          <motion.h1 className="lg:-mt-[15vh] text-5xl lg:text-[9rem] text-red-700 headingF font-sans">
             kiez
-          </h1>
-          <h1 className="lg:-mt-[15vh] text-5xl lg:text-[9rem] text-red-700 headingF font-sans">
+          </motion.h1>
+          <motion.h1 className="lg:-mt-[15vh] text-5xl lg:text-[9rem] text-red-700 headingF font-sans">
             kneipe
-          </h1>
+          </motion.h1>
         </motion.div>
       </div>
 
