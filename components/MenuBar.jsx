@@ -26,7 +26,7 @@ const user = {
     'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
 }
 const navigation = [
-  { name: 'Home', href: '/#moinmoin', current: true },
+  { imgage: 'img src="../public/Bulleye.svg"',name: 'Home', href: '/#moinmoin', current: true },
   { name: 'Geschichte', href: '#', current: false },
   { name: 'Team', href: '#', current: false },
   { name: 'Drinks', href: '#', current: false },
@@ -49,10 +49,10 @@ function classNames(...classes) {
 
 export default function Example() {
   return (
-    <Disclosure as="header" className="bg-gray-800">
+    <Disclosure as="header" className="bg-green-800">
       {({ open }) => (
         <>
-          <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:divide-y lg:divide-gray-700 lg:px-8">
+          <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:divide-y lg:divide-red-500 lg:px-8">
             <div className="relative h-16 flex justify-between">
               <div className="relative z-10 px-2 flex lg:px-0">
                 <div className="flex-shrink-0 flex items-center">
@@ -75,7 +75,7 @@ export default function Example() {
                     <input
                       id="search"
                       name="search"
-                      className="block w-full bg-yellow-100/50 border border-transparent rounded-md py-2 pl-10 pr-3 text-sm placeholder-gray-400 focus:outline-none focus:bg-white focus:border-white focus:ring-white focus:text-blue-500-900 focus:placeholder-gray-500 sm:text-sm"
+                      className="block w-full bg-yellow-300/50 border border-transparent rounded-md py-2 pl-10 pr-3 text-sm placeholder-gray-400 focus:outline-none focus:bg-white focus:border-white focus:ring-white focus:text-blue-500-900 focus:placeholder-gray-500 sm:text-sm"
                       placeholder="Search"
                       type="search"
                     />
@@ -84,7 +84,7 @@ export default function Example() {
               </div>
               <div className="relative z-10 flex items-center lg:hidden">
                 {/* Mobile menu button */}
-                <Disclosure.Button className="rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
+                <Disclosure.Button className="rounded-md p-2 inline-flex items-center justify-center text-yellow-400 hover:bg-yellow-600 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
                   <span className="sr-only">Open menu</span>
                   {open ? (
                     <XIcon className="block h-6 w-6" aria-hidden="true" />
@@ -96,7 +96,7 @@ export default function Example() {
               <div className="hidden lg:relative lg:z-10 lg:ml-4 lg:flex lg:items-center">
                 <button
                   type="button"
-                  className="bg-gray-800 flex-shrink-0 rounded-full p-1 text-yellow-400-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
+                  className="bg-gray-800/25 flex-shrink-0 rounded-full p-1 text-white hover:bg-yellow-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
                 >
                   <span className="sr-only">View notifications</span>
                   <BellIcon className="h-6 w-6" aria-hidden="true" />
@@ -105,7 +105,7 @@ export default function Example() {
                 {/* Profile dropdown */}
                 <Menu as="div" className="flex-shrink-0 relative ml-4">
                   <div>
-                    <Menu.Button className="bg-gray-800 rounded-full flex text-sm text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
+                  <Menu.Button className="bg-blue-600/90 rounded-full flex text-sm text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
                       <span className="sr-only">Open user menu</span>
                       <img className="h-8 w-8 rounded-full" src={user.imageUrl} alt="" />
                     </Menu.Button>
@@ -174,7 +174,7 @@ export default function Example() {
                 </Disclosure.Button>
               ))}
             </div>
-            <div className="border-t border-gray-700 pt-4 pb-3">
+            <div className="border-t border-yellow-500 pt-4 pb-3">
               <div className="px-4 flex items-center">
                 <div className="flex-shrink-0">
                   <img className="h-10 w-10 rounded-full" src={user.imageUrl} alt="" />

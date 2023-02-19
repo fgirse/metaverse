@@ -1,5 +1,4 @@
-"use client";
-
+"use client"
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
@@ -8,8 +7,14 @@ import Tooltip from "react-simple-tooltip";
 import { fadeIn, staggerContainer, zoomIn } from "../utils/motion";
  import { ArrowCircleRightIcon } from "@heroicons/react/solid";
 import { ArrowCircleUpIcon } from "@heroicons/react/outline";
+import ScrollToTopButton from'../components/ScrollToTopButton';
+import addEventListener from"react";
+
 const Feedback = () => (
-  <section id="#wohin" className={`${styles.paddings} g:h-screen lg:bg-[url('/west-side-story.png')] lg:bg-cover w-full `}
+
+
+  
+  <section name="#wohin" className={`${styles.paddings} g:h-screen lg:bg-[url('/west-side-story.png')] lg:bg-cover w-full `}
   >
     <motion.div
       variants={staggerContainer}
@@ -58,24 +63,11 @@ const Feedback = () => (
 
           </motion.div>
       </motion.div>
-      <div className="flex flex-col items-center justify-center">
-          <Tooltip fontSize="0.866rem" padding="2px" content="back to TOP" direction="top" border="#ffffff" background="#d000ff">
-          <buttton type="buttton" className="bg-orange-400 text-[1rem] rounded-full border border-white text-white w-24 h-24 flex flex-row justify-center items-center ">
-            {/*<svg
-                className="w-16 lg:w-20 "
-                fill="#ffffff"
-                viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
-                <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
-</svg>*/} <ArrowCircleUpIcon/>
-              <Link href="/blog/intro" scroll={true}></Link>
-                 </buttton>
-          </Tooltip>
-        </div>
+      
+     
+         
     </motion.div>
+    <ScrollToTopButton/>
   </section>
 );
-
-export default Feedback;
+export default Feedback

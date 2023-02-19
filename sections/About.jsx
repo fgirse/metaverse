@@ -9,7 +9,7 @@ import { fadeIn, staggerContainer } from '../utils/motion';
 import { TypingText } from "../components";
 
 const About = () => (
-  <section className={`${styles.paddings} relative z-10`}>
+  <section className={`${styles.paddings} relative z-10`} name="hashid">
     <div className="gradient-02 z-0"></div>
     <motion.div
       variants={staggerContainer}
@@ -36,8 +36,8 @@ const About = () => (
         In Hommage an eine typische Kiez-Kneipe auf St.Pauli, haben wir im
         Herzen von Freiburg ein Lokal eröffnet, welches es so südlich der Elbe
         wohl kein zweites Mal gibt. Ausgebaut im Stile eines Schiffrumpfes, ist
-        der im Herzen der Altstadt gelegene Rettungsanker-Freiburg idealer
-        Treffpunkt um nach Feiereabend etwas zu entspannen und nette Leute
+        der im Zentrum der Altstadt gelegene Rettungsanker-Freiburg idealer
+        Treffpunkt um nach Feierabend etwas zu entspannen und nette Leute
         kennenzulernen. Wir sind stolz auf unser buntes, internationales
         Publikum. <br /> Unser Rettungsanker ist auch ideale Location zur
         Durchführung Ihres privaten oder geschäftlichen Events &nbsp;Sprechen
