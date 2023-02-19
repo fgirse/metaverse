@@ -24,16 +24,16 @@ const About = () => (
         variants={fadeIn("up", "tween", 0.2, 1)}
         className="mt-[8px] font-normal sm:text-[32px] text-[20px] text-center text-gray-500"
       >
-        <motion-h1 className="text-[4rem] font-extrabold text-yellow-500 text-center">&quot;Moin Moin&quot;</motion-h1>
+        <h1 className="text-[4rem] font-extrabold text-yellow-500 text-center">&quot;Moin Moin&quot;</h1>
         <Image
           src="/lighthouse3.png"
-          height="380"
-          width="280"
+          height="320"
+          width="230"
           alt="Leuchtturm"
           className="shape-lighthouse"
         />
         
-        In Hommage an eine typische Kiez-Kneipe auf St.Pauli, haben wir im
+        <p className = "text-red-600"> In Hommage an eine typische Kiez-Kneipe auf St.Pauli, haben wir im
         Herzen von Freiburg ein Lokal eröffnet, welches es so südlich der Elbe
         wohl kein zweites Mal gibt. Ausgebaut im Stile eines Schiffrumpfes, ist
         der im Zentrum der Altstadt gelegene Rettungsanker-Freiburg idealer
@@ -42,7 +42,7 @@ const About = () => (
         Publikum. <br /> Unser Rettungsanker ist auch ideale Location zur
         Durchführung Ihres privaten oder geschäftlichen Events &nbsp;Sprechen
         Sie uns an oder kontaktieren Sie uns vor Ort oder schreiben Sie uns eine
-        email. Wir freuen uns Sie im Rettungsanker begrüsssen zu dürfen. 
+        email. Wir freuen uns Sie im Rettungsanker begrüsssen zu dürfen.</p> 
         
         <div className="flex flex-row justify-center items-center gap-x-5">
         <Image

@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-
+import Image from 'next/image';
 import styles from '../styles';
 import { slideIn, staggerContainer, textVariant } from '../utils/motion';
 
@@ -16,10 +16,13 @@ const Hero = () => (
       viewport={{ once: false, amount: 0.25 }}
       className={`${styles.innerWidth} mt-[25] mx-auto flex flex-col bg-slate-800/50 lg:mt-[15vh]`}
     >
+      <div className='hidden lg:flex lg:flex-col lg:items-center'>
+      <Image src="/LogoNeu.png" width="260" height="200"  alt="LogoNeu"/>
+      </div>
       <div className="flex justify-center items-center flex-col relative z-10 ">
         <motion.h1
           variants={textVariant(1.1)}
-          className="mt-3 lg:-mt-[26vh]  lg:mb-[3vh] headingE text-yellow-50 text-[11rem] lg:text-[17rem]"
+          className="-mt[5vh] lg:-mt-[26vh]  lg:mb-[3vh] headingE text-yellow-50 text-[11rem] lg:text-[17rem]"
         >
           die
         </motion.h1>
